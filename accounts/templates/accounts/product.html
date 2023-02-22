@@ -1,5 +1,42 @@
 {% extends 'accounts/main.html' %} {% block content %}
 
-<h1>Product</h1>
+<div class="container-fluid">
+  <br />
+
+  <div class="row">
+    <div class="col-md">
+      <div class="card card-body">
+        <h5>Products</h5>
+      </div>
+      <div class="card card-body">
+        <table class="table">
+          <tr>
+            <th>Product</th>
+            <th>Category</th>
+            <th>Price</th>
+          </tr>
+
+          <tr>
+            <td>BBQ Grill</td>
+            <td>Out Door</td>
+            <td>200.0</td>
+          </tr>
+
+          <tr>
+            <td>Dishes</td>
+            <td>Indoor</td>
+            <td>50.0</td>
+          </tr>
+
+          <tr>
+            <td>Ball</td>
+            <td>Out Door</td>
+            <td>30.0</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

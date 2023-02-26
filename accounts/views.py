@@ -6,7 +6,10 @@ from .models import *
 
 
 def home(request):
-    return render(request, 'accounts/dashboard.html')
+    customers = Customer.objects.all()
+    orders = Order.objects.all()
+    context = {'orders': orders, 'customers': customers}
+    return render(request, 'accounts/dashboard.html', context)
 
 
 def product(request):

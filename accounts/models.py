@@ -24,6 +24,7 @@ class Product(models.Model):
     CATEGORY = (
         ('Indoor Item', 'Indoor Item'),
         ('Outdoor Item', 'Outdoor Item'),
+        ('Gadget', 'Gadget'),
     )
     name = models.CharField(max_length=200, null=True)
     price = models.FloatField(null=True)

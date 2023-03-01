@@ -84,5 +84,9 @@ def createProduct(request):
 
 def deleteProduct(request, pd):
     product = Product.objects.get(id=pd)
+    if request.method == 'POST':
+        product.delete()
+        return redirect('/product')
 
-    return render(request, 'accounts/product_delete.html')
+    context = {'item': product}
+    return render(request, 'accounts/product_delete.html', context)

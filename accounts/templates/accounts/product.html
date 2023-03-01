@@ -21,7 +21,13 @@
             <td>{{i.name}}</td>
             <td>{{i.category}}</td>
             <td>{{i.price}} Taka</td>
-            <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+            <td>
+              <a
+                class="btn btn-sm btn-danger"
+                href="{% url 'delete_product' i.id %}"
+                >Delete</a
+              >
+            </td>
           </tr>
           {% endfor %}
         </table>

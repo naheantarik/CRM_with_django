@@ -1,7 +1,7 @@
 {% extends 'accounts/main.html' %} {% block content %}
 
 <form actoon="" method="POST">
-  <!-- {% csrf_token %} -->
+  {% csrf_token %} {{form}}
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

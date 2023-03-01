@@ -5,10 +5,10 @@
 <form action="{% url 'delete_order'  item.id %}" method="POST">
   {% csrf_token %}
 
-  <button type="submit" class="btn btn-sm btn-primary" name="Confiem">
+  <button type="submit" class="btn btn-sm btn-danger" name="Confiem">
     Submit
   </button>
-  <a class="btn btn-sm btn-danger" href="{% url 'home' %}">Cancel</a>
+  <a class="btn btn-sm btn-primary" href="{% url 'home' %}">Cancel</a>
 </form>
 
 {% endblock %}

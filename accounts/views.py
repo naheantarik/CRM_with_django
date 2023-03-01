@@ -80,3 +80,9 @@ def createProduct(request):
 
     context = {'form': form}
     return render(request, 'accounts/product_create.html', context)
+
+
+def deleteProduct(request, pd):
+    product = Product.objects.get(id=pd)
+
+    return render(request, 'accounts/product_delete.html')

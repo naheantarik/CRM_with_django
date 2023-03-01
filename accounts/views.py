@@ -53,6 +53,7 @@ def update_order(request, pk):
         if form.is_valid():
             form.save()
             return redirect('/')
+
     context = {'form': form}
     return render(request, 'accounts/order_form.html', context)
 
@@ -60,12 +61,9 @@ def update_order(request, pk):
 def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
 
-    form = OrderForm(instance=order)
     if request.method == 'POST':
-        form = OrderForm(request.POST, instance=order)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
+        order.delete()
+        return redirect('/')
 
     context = {'item': order}
     return render(request, 'accounts/delete.html', context)

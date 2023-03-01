@@ -22,7 +22,7 @@ class Tag(models.Model):
 
 class Product(models.Model):
     CATEGORY = (
-        ('Indoor Item', 'Indoor Item'),
+        ('Food', 'Food'),
         ('Outdoor Item', 'Outdoor Item'),
         ('Gadget', 'Gadget'),
     )

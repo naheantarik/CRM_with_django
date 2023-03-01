@@ -104,7 +104,13 @@
                 >Update</a
               >
             </td>
-            <td><a class="btn btn-sm btn-danger" href="">Remove</a></td>
+            <td>
+              <a
+                class="btn btn-sm btn-danger"
+                href="{% url 'delete_order' i.id %}"
+                >Remove</a
+              >
+            </td>
           </tr>
           {% endfor %}
         </table>

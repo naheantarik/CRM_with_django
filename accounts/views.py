@@ -82,6 +82,12 @@ def createProduct(request):
     return render(request, 'accounts/product_create.html', context)
 
 
+def updateProduct(request):
+
+    context = {'form': form}
+    return render(request, 'accounts/product_create.html', context)
+
+
 def deleteProduct(request, pd):
     product = Product.objects.get(id=pd)
     if request.method == 'POST':

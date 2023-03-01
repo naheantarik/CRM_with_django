@@ -55,11 +55,13 @@
       >
       <table class="table table-sm">
         <tr>
+          <th></th>
           <th>Customer</th>
           <th>Phone</th>
         </tr>
         {% for i in customers %}
         <tr>
+          <td><a href="{% url 'customer' i.id %}">View</a></td>
           <td>{{i.name}}</td>
           <td>{{i.phone}}</td>
         </tr>

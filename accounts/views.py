@@ -57,5 +57,5 @@ def update_order(request, pk):
 
 
 def deleteOrder(request):
-    context =
+    # context =
     return render(request, 'accounts/delete.html', context)

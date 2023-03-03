@@ -22,7 +22,9 @@
             <td>{{i.category}}</td>
             <td>{{i.price}} Taka</td>
             <td>
-              <a class="btn btn-sm btn-info" href="{% url 'CreateProduct' %}"
+              <a
+                class="btn btn-sm btn-info"
+                href="{% url 'update_product' i.id %}"
                 >Update</a
               >
             </td>

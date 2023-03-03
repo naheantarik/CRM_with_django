@@ -82,7 +82,15 @@ def createProduct(request):
     return render(request, 'accounts/product_create.html', context)
 
 
-def updateProduct(request):
+def updateProduct(request, pd):
+    product = Product.objects.get(id=pd)
+    form = ProductForm(instance=product)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('/product')
 
     context = {'form': form}
     return render(request, 'accounts/product_create.html', context)
@@ -96,3 +104,17 @@ def deleteProduct(request, pd):
 
     context = {'item': product}
     return render(request, 'accounts/product_delete.html', context)
+
+
+# Customer Section
+
+def deleteOrder(request, pk):
+    order = Order.objects.get(id=pk)
+    customers = Customer.objects.get(id=cng)
+
+    if request.method == 'POST':
+        order.delete()
+        return redirect('/customers')
+
+    context = {'item': order}
+    return render(request, 'accounts/delete.html', context)

@@ -110,7 +110,7 @@ def deleteProduct(request, pd):
 
 def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
-    customers = Customer.objects.get(id=cng)
+    customers = Customer.objects.get(id=pk)
 
     if request.method == 'POST':
         order.delete()

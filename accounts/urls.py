@@ -9,7 +9,7 @@ urlpatterns = [
 
     # Order Update Delete Create
 
-    path('order/', views.createOrder, name='create_order'),
+    path('create_order//<str:pk>/', views.createOrder, name='create_order'),
     path('update_order/<str:pk>/', views.update_order, name='update_order'),
     path('delete_order/<str:pk>/', views.deleteOrder, name='delete_order'),
 
@@ -19,7 +19,9 @@ urlpatterns = [
     path('update_product/<str:pd>/', views.updateProduct, name='update_product'),
     path('delete_product/<str:pd>/', views.deleteProduct, name='delete_product'),
 
+    # Customer Create Update Delete And Order Update
 
+    path('create_customer/', views.createCustomer, name='create_customer'),
 
     path('customer_order_delete/<str:pk>/',
          views.deleteOrder, name='customer_order_delete'),

@@ -1,6 +1,5 @@
 from django.forms import ModelForm
-from .models import Order
-from .models import Product
+from .models import Order, Product, Customer
 
 # Create your Form here.
 
@@ -14,4 +13,10 @@ class OrderForm(ModelForm):
 class ProductForm(ModelForm):
     class Meta:
         model = Product
+        fields = '__all__'
+
+
+class CreateCustomer(ModelForm):
+    class Meta:
+        model = Customer
         fields = '__all__'

@@ -33,7 +33,8 @@ def customer(request, cng):
     return render(request, 'accounts/customer.html', context)
 
 
-def createOrder(request):
+def createOrder(request, pk):
+    customer = Customer.objects.get(id=pk)
     form = OrderForm()
     if request.method == 'POST':
         form = OrderForm(request.POST)
@@ -107,6 +108,10 @@ def deleteProduct(request, pd):
 
 
 # Customer Section
+
+def createCustomer(request):
+    return render(request, 'accounts/create_customer.html')
+
 
 def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)

@@ -7,7 +7,11 @@
 
         <hr />
         <a class="btn btn-sm btn-info" href="">Update Customer</a>
-        <a class="btn btn-sm btn-danger" href="/create_order/2/">Place Order</a>
+        <a
+          class="btn btn-sm btn-danger"
+          href="{% url 'create_order' customer.id %}"
+          >Place Order</a
+        >
       </div>
     </div>
   </div>

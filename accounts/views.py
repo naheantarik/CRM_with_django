@@ -24,6 +24,10 @@ def product(request):
     return render(request, 'accounts/product.html', {'products': products})
 
 
+def customerPage(request):
+    return render(request, 'accounts/customer_page.html')
+
+
 def customer(request, cng):
     customer = Customer.objects.get(id=cng)
     orders = customer.order_set.all()

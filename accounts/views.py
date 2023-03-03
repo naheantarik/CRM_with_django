@@ -25,7 +25,9 @@ def product(request):
 
 
 def customerPage(request):
-    return render(request, 'accounts/customer_page.html')
+    customers = Customer.objects.all()
+    context = {'customers': customers}
+    return render(request, 'accounts/customer_page.html', context)
 
 
 def customer(request, cng):

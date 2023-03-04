@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
-from .form import OrderForm, ProductForm
+from .form import OrderForm, ProductForm, CreateCustomer
 
 # Create your views here.
 
@@ -116,7 +116,14 @@ def deleteProduct(request, pd):
 # Customer Section
 
 def createCustomer(request):
-    return render(request, 'accounts/create_customer.html')
+    form = CreateCustomer()
+    if request.method == 'POST':
+        form = CreateCustomer(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/customer_page')
+    context = {'form': form}
+    return render(request, 'accounts/create_customer.html', context)
 
 
 def deleteOrder(request, pk):

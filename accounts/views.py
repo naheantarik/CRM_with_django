@@ -10,14 +10,15 @@ from .filters import OrderFilters, ProductFielters
 def home(request):
     customers = Customer.objects.all()
     orders = Order.objects.all()
-    productFilters = ProductFielters()
+    # productFilters = ProductFielters(request.GET, queryset=orders)
+    # orders = productFilters.qs
     total_orders = orders.count()
     total_customers = customers.count()
     delivered = orders.filter(status='Delivered').count()
     pending = orders.filter(status='Pending').count()
 
     context = {'orders': orders,
-               'total_orders': total_orders, 'total_customers': total_customers, 'delivered': delivered, 'pending': pending, 'productFilters': productFilters}
+               'total_orders': total_orders, 'total_customers': total_customers, 'delivered': delivered, 'pending': pending}
     return render(request, 'accounts/dashboard.html', context)
 
 

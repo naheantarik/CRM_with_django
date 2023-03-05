@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'accounts',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -119,7 +120,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# MEDIA_URL = 'image/'
+MEDIA_URL = 'image/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

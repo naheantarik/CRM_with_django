@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from .form import OrderForm, ProductForm, CreateCustomer
+from .filters import OrderFilters
 
 # Create your views here.
 
@@ -33,9 +34,10 @@ def customerPage(request):
 def customer(request, cng):
     customer = Customer.objects.get(id=cng)
     orders = customer.order_set.all()
+    myFelters = OrderFilters()
     total_orders = orders.count()
     context = {'orders': orders, 'customer': customer,
-               'total_orders': total_orders, }
+               'total_orders': total_orders, 'myFelters': myFelters}
     return render(request, 'accounts/customer.html', context)
 
 

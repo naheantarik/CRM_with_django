@@ -10,7 +10,7 @@ urlpatterns = [
 
     # Order Update Delete Create
 
-    path('create_order//<str:pk>/', views.createOrder, name='create_order'),
+    path('create_order/<str:pk>/', views.createOrder, name='create_order'),
     path('update_order/<str:pk>/', views.update_order, name='update_order'),
     path('delete_order/<str:pk>/', views.deleteOrder, name='delete_order'),
 

@@ -34,7 +34,8 @@ def customerPage(request):
 def customer(request, cng):
     customer = Customer.objects.get(id=cng)
     orders = customer.order_set.all()
-    myFilters = OrderFilters()
+    myFilters = OrderFilters(request.GET, queryset=orders)
+    orders = myFilters.qs
     total_orders = orders.count()
     context = {'orders': orders, 'customer': customer,
                'total_orders': total_orders, 'myFilters': myFilters}
@@ -130,11 +131,11 @@ def createCustomer(request):
 
 def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
-    customers = Customer.objects.get(id=pk)
+    # customers = Customer.objects.get(id=pk)
 
     if request.method == 'POST':
         order.delete()
-        return redirect('/customers')
+        return redirect('/')
 
     context = {'item': order}
     return render(request, 'accounts/delete.html', context)

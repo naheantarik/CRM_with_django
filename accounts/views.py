@@ -34,10 +34,10 @@ def customerPage(request):
 def customer(request, cng):
     customer = Customer.objects.get(id=cng)
     orders = customer.order_set.all()
-    myFelters = OrderFilters()
+    myFilters = OrderFilters()
     total_orders = orders.count()
     context = {'orders': orders, 'customer': customer,
-               'total_orders': total_orders, 'myFelters': myFelters}
+               'total_orders': total_orders, 'myFilters': myFilters}
     return render(request, 'accounts/customer.html', context)
 
 

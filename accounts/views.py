@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from .form import OrderForm, ProductForm, CreateCustomer
-from .filters import OrderFilters
+from .filters import OrderFilters, ProductFielters
 
 # Create your views here.
 
@@ -10,13 +10,14 @@ from .filters import OrderFilters
 def home(request):
     customers = Customer.objects.all()
     orders = Order.objects.all()
+    productFilters = ProductFielters()
     total_orders = orders.count()
     total_customers = customers.count()
     delivered = orders.filter(status='Delivered').count()
     pending = orders.filter(status='Pending').count()
 
     context = {'orders': orders,
-               'total_orders': total_orders, 'total_customers': total_customers, 'delivered': delivered, 'pending': pending}
+               'total_orders': total_orders, 'total_customers': total_customers, 'delivered': delivered, 'pending': pending, 'productFilters': productFilters}
     return render(request, 'accounts/dashboard.html', context)
 
 

@@ -11,17 +11,4 @@
   <a class="btn btn-sm btn-primary" href="{% url 'home' %}">Cancel</a>
 </form>
 
-{% endblock %} {% extends 'accounts/main.html' %} {% block content %}
-
-<p>Are you sure you want to delete "{{item}}"?</p>
-
-<form action="{% url 'delete_order'  item.id %}" method="POST">
-  {% csrf_token %}
-
-  <button type="submit" class="btn btn-sm btn-danger" name="Confiem">
-    Submit
-  </button>
-  <a class="btn btn-sm btn-primary" href="{% url 'home' %}">Cancel</a>
-</form>
-
 {% endblock %}

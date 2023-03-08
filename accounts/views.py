@@ -3,17 +3,21 @@ from django.http import HttpResponse
 from .models import *
 from .form import OrderForm, ProductForm, CreateCustomer
 from .filters import OrderFilters, ProductFielters
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 
 
 def registerPage(request):
-    context = {}
+    form = UserCreationForm()
+    context = {'form': form}
     return render(request, 'accounts/register.html', context)
 
 
 def login(request):
-    context = {}
+    form = User()
+    context = {'form': form}
     return render(request, 'accounts/login.html', context)
 
 

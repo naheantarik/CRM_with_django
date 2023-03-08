@@ -65,17 +65,20 @@ def home(request):
     return render(request, 'accounts/dashboard.html', context)
 
 
+@login_required(login_url='login')
 def product(request):
     products = Product.objects.all()
     return render(request, 'accounts/product.html', {'products': products})
 
 
+@login_required(login_url='login')
 def customerPage(request):
     customers = Customer.objects.all()
     context = {'customers': customers}
     return render(request, 'accounts/customer_page.html', context)
 
 
+@login_required(login_url='login')
 def customer(request, cng):
     customer = Customer.objects.get(id=cng)
     orders = customer.order_set.all()
@@ -87,6 +90,7 @@ def customer(request, cng):
     return render(request, 'accounts/customer.html', context)
 
 
+@login_required(login_url='login')
 def createOrder(request, pk):
     customer = Customer.objects.get(id=pk)
     form = OrderForm(initial={'customer': customer})
@@ -99,6 +103,7 @@ def createOrder(request, pk):
     return render(request, 'accounts/order_form.html', context)
 
 
+@login_required(login_url='login')
 def update_order(request, pk):
     order = Order.objects.get(id=pk)
     form = OrderForm(instance=order)
@@ -113,6 +118,7 @@ def update_order(request, pk):
     return render(request, 'accounts/order_form.html', context)
 
 
+@login_required(login_url='login')
 def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
 
@@ -124,6 +130,7 @@ def deleteOrder(request, pk):
     return render(request, 'accounts/delete.html', context)
 
 
+@login_required(login_url='login')
 def createProduct(request):
     form = ProductForm()
 
@@ -137,6 +144,7 @@ def createProduct(request):
     return render(request, 'accounts/product_create.html', context)
 
 
+@login_required(login_url='login')
 def updateProduct(request, pd):
     product = Product.objects.get(id=pd)
     form = ProductForm(instance=product)
@@ -151,6 +159,7 @@ def updateProduct(request, pd):
     return render(request, 'accounts/product_create.html', context)
 
 
+@login_required(login_url='login')
 def deleteProduct(request, pd):
     product = Product.objects.get(id=pd)
     if request.method == 'POST':
@@ -163,6 +172,7 @@ def deleteProduct(request, pd):
 
 # Customer Section
 
+@login_required(login_url='login')
 def createCustomer(request):
     form = CreateCustomer()
     if request.method == 'POST':
@@ -174,6 +184,7 @@ def createCustomer(request):
     return render(request, 'accounts/create_customer.html', context)
 
 
+@login_required(login_url='login')
 def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
     # customers = Customer.objects.get(id=pk)

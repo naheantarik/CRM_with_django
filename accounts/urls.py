@@ -4,11 +4,11 @@ from . import views
 
 urlpatterns = [
     path('register/', views.registerPage, name='register'),
-    path('login/', views.loginpage, name='login'),
+    path('', views.loginpage, name='login'),
     path('logout/', views.logoutPage, name='logout'),
 
 
-    path('', views.home, name='home'),
+    path('home/', views.home, name='home'),
     path('product/', views.product, name='product'),
     path('customer/<str:cng>/', views.customer, name='customer'),
     path('customer_page/', views.customerPage, name='customer_page'),

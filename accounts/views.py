@@ -1,22 +1,19 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
-from .form import OrderForm, ProductForm, CreateCustomer
+from .form import OrderForm, ProductForm, CreateCustomer, CreateUserForm
 from .filters import OrderFilters, ProductFielters
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 
 # Create your views here.
 
 
 def registerPage(request):
-    form = UserCreationForm()
+    form = CreateUserForm()
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
 
 
 def login(request):
-    form = User()
     context = {'form': form}
     return render(request, 'accounts/login.html', context)
 

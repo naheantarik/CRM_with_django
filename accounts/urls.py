@@ -3,6 +3,10 @@ from . import views
 
 
 urlpatterns = [
+    path('register/', views.registerPage, name='register'),
+    path('login/', views.login, name='login'),
+
+
     path('', views.home, name='home'),
     path('product/', views.product, name='product'),
     path('customer/<str:cng>/', views.customer, name='customer'),

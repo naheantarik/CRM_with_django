@@ -27,7 +27,7 @@ def registerPage(request):
     return render(request, 'accounts/register.html', context)
 
 
-def login(request):
+def loginpage(request):
 
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -39,6 +39,11 @@ def login(request):
 
     context = {}
     return render(request, 'accounts/login.html', context)
+
+
+def logoutPage(request):
+    logout(request)
+    return redirects('login')
 
 
 def home(request):

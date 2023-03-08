@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 from .models import *
@@ -48,6 +49,7 @@ def logoutPage(request):
     return redirect('login')
 
 
+@login_required(login_url='login')
 def home(request):
     customers = Customer.objects.all()
     orders = Order.objects.all()

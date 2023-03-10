@@ -10,6 +10,7 @@ urlpatterns = [
 
     path('', views.home, name='home'),
     path('product/', views.product, name='product'),
+    path('test/', views.api_response),
     path('customer/<str:cng>/', views.customer, name='customer'),
     path('customer_page/', views.customerPage, name='customer_page'),
 

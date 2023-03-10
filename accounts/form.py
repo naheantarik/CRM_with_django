@@ -30,9 +30,3 @@ class CreateCustomer(ModelForm):
     class Meta:
         model = Customer
         fields = '__all__'
-
-
-class CreateCustomer(ModelForm):
-    class Meta:
-        model = Customer
-        fields = '__all__'

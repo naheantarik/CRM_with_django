@@ -104,12 +104,14 @@ def customer(request, cng):
 @login_required(login_url='login')
 def createOrder(request, pk):
     customer = Customer.objects.get(id=pk)
+    print(pk)
     form = OrderForm(initial={'customer': customer})
+    # print(form)
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/customer/' + pk)
     context = {'form': form}
     return render(request, 'accounts/order_form.html', context)
 
@@ -202,7 +204,7 @@ def deleteOrder(request, pk):
 
     if request.method == 'POST':
         order.delete()
-        return redirect('/')
+        return redirect('/customer/' + pk)
 
     context = {'item': order}
     return render(request, 'accounts/delete.html', context)

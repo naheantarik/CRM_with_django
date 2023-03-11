@@ -181,16 +181,16 @@ def deleteProduct(request, pd):
 
 # Customer Section
 
-@login_required(login_url='login')
-def createCustomer(request):
-    form = CreateCustomer()
-    if request.method == 'POST':
-        form = CreateCustomer(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/customer_page')
-    context = {'form': form}
-    return render(request, 'accounts/create_customer.html', context)
+# @login_required(login_url='login')
+# def createCustomer(request):
+#     form = CreateCustomer()
+#     if request.method == 'POST':
+#         form = CreateCustomer(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/customer_page')
+#     context = {'form': form}
+#     return render(request, 'accounts/create_customer.html', context)
 
 
 @login_required(login_url='login')

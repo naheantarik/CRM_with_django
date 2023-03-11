@@ -28,7 +28,7 @@ urlpatterns = [
 
     # Customer Create Update Delete And Order Update
 
-    path('create_customer/', views.createCustomer, name='create_customer'),
+    # path('create_customer/', views.createCustomer, name='create_customer'),
 
     path('customer_order_delete/<str:pk>/',
          views.deleteOrder, name='customer_order_delete'),

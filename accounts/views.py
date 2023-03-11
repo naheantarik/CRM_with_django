@@ -75,6 +75,7 @@ def user(request):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def product(request):
     products = Product.objects.all()
     return render(request, 'accounts/product.html', {'products': products})
@@ -85,6 +86,7 @@ def api_response(request):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def customerPage(request):
     customers = Customer.objects.all()
     context = {'customers': customers}
@@ -92,6 +94,7 @@ def customerPage(request):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def customer(request, cng):
     customer = Customer.objects.get(id=cng)
     orders = customer.order_set.all()
@@ -104,6 +107,7 @@ def customer(request, cng):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def createOrder(request, pk):
     customer = Customer.objects.get(id=pk)
     print(pk)
@@ -119,6 +123,7 @@ def createOrder(request, pk):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def update_order(request, pk):
     order = Order.objects.get(id=pk)
     form = OrderForm(instance=order)
@@ -134,6 +139,7 @@ def update_order(request, pk):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
 
@@ -146,6 +152,7 @@ def deleteOrder(request, pk):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def createProduct(request):
     form = ProductForm()
 
@@ -160,6 +167,7 @@ def createProduct(request):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def updateProduct(request, pd):
     product = Product.objects.get(id=pd)
     form = ProductForm(instance=product)
@@ -175,6 +183,7 @@ def updateProduct(request, pd):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def deleteProduct(request, pd):
     product = Product.objects.get(id=pd)
     if request.method == 'POST':
@@ -200,6 +209,7 @@ def deleteProduct(request, pd):
 
 
 @login_required(login_url='login')
+@allowed_users(allowed_roles=['admin'])
 def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
 

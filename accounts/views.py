@@ -68,6 +68,11 @@ def home(request):
     return render(request, 'accounts/dashboard.html', context)
 
 
+def user(request):
+    context = {}
+    return render(request, 'accounts/user.html', context)
+
+
 @login_required(login_url='login')
 def product(request):
     products = Product.objects.all()
@@ -95,11 +100,6 @@ def customer(request, cng):
     context = {'orders': orders, 'customer': customer,
                'total_orders': total_orders, 'myFilters': myFilters}
     return render(request, 'accounts/customer.html', context)
-
-
-def user(request):
-    context = {}
-    return render(request, 'accounts/user.html', context)
 
 
 @login_required(login_url='login')

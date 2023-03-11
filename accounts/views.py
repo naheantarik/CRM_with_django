@@ -27,10 +27,13 @@ def registerPage(request):
 
             group = Group.objects.get(name='customer')
             user.groups.add(group)
+            Customer.objects.create(
+                user=user,
+            )
 
             messages.success(request, 'Account was created for' + username)
 
-            return redirect('/login')
+            return redirect('login')
 
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
@@ -124,14 +127,12 @@ def customer(request, cng):
 @allowed_users(allowed_roles=['admin'])
 def createOrder(request, pk):
     customer = Customer.objects.get(id=pk)
-    print(pk)
     form = OrderForm(initial={'customer': customer})
-    # print(form)
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/customer/' + pk)
+            return redirect('/')
     context = {'form': form}
     return render(request, 'accounts/order_form.html', context)
 

@@ -97,6 +97,11 @@ def customer(request, cng):
     return render(request, 'accounts/customer.html', context)
 
 
+def user(request):
+    context = {}
+    return render(request, 'accounts/user.html', context)
+
+
 @login_required(login_url='login')
 def createOrder(request, pk):
     customer = Customer.objects.get(id=pk)

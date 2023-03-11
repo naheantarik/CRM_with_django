@@ -13,6 +13,7 @@ urlpatterns = [
     path('test/', views.api_response),
     path('customer/<str:cng>/', views.customer, name='customer'),
     path('customer_page/', views.customerPage, name='customer_page'),
+    path('userPage/', views.user, name='userPage').
 
     # Order Update Delete Create
 

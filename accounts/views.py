@@ -209,18 +209,19 @@ def deleteProduct(request, pd):
     return render(request, 'accounts/product_delete.html', context)
 
 
-# Customer Section
+Customer Section
 
-# @login_required(login_url='login')
-# def createCustomer(request):
-#     form = CreateCustomer()
-#     if request.method == 'POST':
-#         form = CreateCustomer(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('/customer_page')
-#     context = {'form': form}
-#     return render(request, 'accounts/create_customer.html', context)
+
+@login_required(login_url='login')
+def createCustomer(request):
+    form = CreateCustomer()
+    if request.method == 'POST':
+        form = CreateCustomer(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/customer_page')
+    context = {'form': form}
+    return render(request, 'accounts/create_customer.html', context)
 
 
 @login_required(login_url='login')

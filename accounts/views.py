@@ -8,7 +8,7 @@ from django.contrib.auth.models import Group
 
 
 from .models import *
-from .form import OrderForm, ProductForm, CreateCustomer, CreateUserForm
+from .form import OrderForm, ProductForm, CreateCustomer, CreateUserForm, CustomerForm
 from .filters import OrderFilters, ProductFielters
 from .decorators import unauthenticated_user, allowed_users, Admin_only
 
@@ -240,5 +240,12 @@ def deleteOrder(request, pk):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def accountSet(request):
-    context = {}
+    customer = request.user.customer
+    form = CustomerForm(instance=customer)
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, request.FILES, instance=customer)
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
     return render(request, 'accounts/account_setting.html', context)

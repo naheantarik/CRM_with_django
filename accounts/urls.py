@@ -14,6 +14,7 @@ urlpatterns = [
     path('customer/<str:cng>/', views.customer, name='customer'),
     path('customer_page/', views.customerPage, name='customer_page'),
     path('userPage/', views.user, name='userPage'),
+    path('accountSet/', views.accountSet, name='accountSet'),
 
     # Order Update Delete Create
 

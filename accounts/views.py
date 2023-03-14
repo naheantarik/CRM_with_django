@@ -237,4 +237,4 @@ def deleteOrder(request, pk):
     return render(request, 'accounts/delete.html', context)
 
 
-# hello
+hello

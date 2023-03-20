@@ -6,3 +6,4 @@ from .models import Customer
 def CustomerProfile(sender, instance, created, **kwargs):
     if created:
         group = Group.objects.get(name='customer')
+        instance.groups.add(group)

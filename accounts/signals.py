@@ -13,3 +13,6 @@ def CustomerProfile(sender, instance, created, **kwargs):
             name=instance.username,
             email=instance.email
         )
+
+
+post_save.connect(CustomerProfile, sender=User)
